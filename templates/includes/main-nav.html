@@ -1,176 +1,177 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <!-- Brand/logo -->
-      <a class="navbar-brand" href="{% url 'index' %}">PetPal</a>
-      
-      <!-- Toggler for offcanvas -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      
-      <!-- Offcanvas container -->
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">PetPal</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <!-- Navigation links -->
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <!-- Home -->
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
-            </li>
-            
-            <!-- Pet Management -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="petManagementDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Pet Management
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="petManagementDropdown">
-                <li><a class="dropdown-item" href="#">Pet Profiles</a></li>
-                <li><a class="dropdown-item" href="#">Health Tracker</a></li>
-                <li><a class="dropdown-item" href="#">Activity Tracker</a></li>
-                <li><a class="dropdown-item" href="#">Milestones</a></li>
-                <li><a class="dropdown-item" href="#">Insurance</a></li>
-              </ul>
-            </li>
-            
-            <!-- Services -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Services
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                <li><a class="dropdown-item" href="#">Find Sitters</a></li>
-                <li><a class="dropdown-item" href="#">Veterinarians</a></li>
-                <li><a class="dropdown-item" href="#">Grooming</a></li>
-                <li><a class="dropdown-item" href="#">Training</a></li>
-                <li><a class="dropdown-item" href="#">Daycare</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Emergency Support</a></li>
-              </ul>
-            </li>
-            
-            <!-- Community -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="communityDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Community
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="communityDropdown">
-                <li><a class="dropdown-item" href="#">Pet Social</a></li>
-                <li><a class="dropdown-item" href="#">Forums</a></li>
-                <li><a class="dropdown-item" href="#">Events</a></li>
-                <li><a class="dropdown-item" href="#">Lost & Found</a></li>
-                <li><a class="dropdown-item" href="#">Volunteer</a></li>
-                <li><a class="dropdown-item" href="#">Memorials</a></li>
-              </ul>
-            </li>
-            
-            <!-- Adoption -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="adoptionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Adoption
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="adoptionDropdown">
-                <li><a class="dropdown-item" href="#">Find a Pet</a></li>
-                <li><a class="dropdown-item" href="#">List for Adoption</a></li>
-                <li><a class="dropdown-item" href="#">Compatibility Finder</a></li>
-                <li><a class="dropdown-item" href="#">Success Stories</a></li>
-              </ul>
-            </li>
-            
-            <!-- Marketplace -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="marketplaceDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Marketplace
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="marketplaceDropdown">
-                <li><a class="dropdown-item" href="#">Pet Shop</a></li>
-                <li><a class="dropdown-item" href="#">Pet Exchange</a></li>
-                <li><a class="dropdown-item" href="#">Subscription Box</a></li>
-                <li><a class="dropdown-item" href="#">Custom Accessories</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Donations</a></li>
-              </ul>
-            </li>
-            
-            <!-- Resources -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Resources
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
-                <li><a class="dropdown-item" href="#">Pet Care Guides</a></li>
-                <li><a class="dropdown-item" href="#">Recipe Sharing</a></li>
-                <li><a class="dropdown-item" href="#">Training Tips</a></li>
-                <li><a class="dropdown-item" href="#">Travel Resources</a></li>
-                <li><a class="dropdown-item" href="#">FAQ</a></li>
-              </ul>
-            </li>
-            
-            <!-- Messages/Inbox -->
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Messages
-                <span class="badge bg-danger rounded-pill">2</span>
-              </a>
-            </li>
-          </ul>
-          
-          <!-- Search form - visible in offcanvas on mobile -->
-          <form class="d-flex d-lg-none my-3" method="GET" action="">
-            <input class="form-control me-2" type="search" name="q" placeholder="Search pets, services, products..." aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-          
-          <!-- User account options for mobile -->
-          <div class="d-lg-none mt-3">
-            {% if request.user.is_authenticated %}
-              <a href="#" class="btn btn-outline-secondary w-100 mb-2">My Profile</a>
-              <a href="#" class="btn btn-outline-secondary w-100 mb-2">My Pets</a>
-              {% if request.user.is_superuser %}
-                <a href="{% url 'admin:index' %}" class="btn btn-outline-dark w-100 mb-2">Admin</a>
-              {% endif %}
-              <a href="{% url 'account_logout' %}" class="btn btn-outline-primary w-100">Log Out</a>
-            {% else %}
-              <a href="{% url 'account_login' %}" class="btn btn-outline-primary w-100 mb-2">Log In</a>
-              <a href="{% url 'account_signup' %}" class="btn btn-primary w-100">Sign Up</a>
-            {% endif %}
-          </div>
-        </div>
+  <div class="container-fluid">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="{% url 'index' %}">PetPal</a>
+    
+    <!-- Toggler for offcanvas -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- Offcanvas container -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">PetPal</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      
-      <!-- Desktop-only search form -->
-      <form class="d-none d-lg-flex ms-auto me-2" method="GET" action="">
-        <input class="form-control me-2" type="search" name="q" placeholder="Search..." aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-      
-      <!-- Desktop-only user dropdown -->
-      <div class="d-none d-lg-block">
-        <div class="dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fas fa-user"></i>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-            {% if request.user.is_authenticated %}
-              <li><a class="dropdown-item" href="#">My Profile</a></li>
-              <li><a class="dropdown-item" href="#">My Pets</a></li>
-              <li><a class="dropdown-item" href="#">My Messages</a></li>
-              <li><a class="dropdown-item" href="#">My Appointments</a></li>
+      <div class="offcanvas-body">
+        <!-- Navigation links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- Home -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+          </li>
+          
+          <!-- Pet Management -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="petManagementDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Pet Management
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="petManagementDropdown">
+              <li><a class="dropdown-item" href="{% url 'pet_profiles:index' %}">Pet Profiles</a></li>
+              <li><a class="dropdown-item" href="{% url 'pet_health:index' %}">Health Tracker</a></li>
+              <li><a class="dropdown-item" href="{% url 'pet_activity:index' %}">Activity Tracker</a></li>
+              <li><a class="dropdown-item" href="{% url 'pet_personality:index' %}">Personality</a></li>
+              <li><a class="dropdown-item" href="{% url 'pet_milestones:index' %}">Milestones</a></li>
+              <li><a class="dropdown-item" href="{% url 'pet_insurance:index' %}">Insurance</a></li>
+            </ul>
+          </li>
+          
+          <!-- Services -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Services
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+              <li><a class="dropdown-item" href="{% url 'sitters:index' %}">Find Sitters</a></li>
+              <li><a class="dropdown-item" href="{% url 'veterinarian:index' %}">Veterinarians</a></li>
+              <li><a class="dropdown-item" href="{% url 'grooming:index' %}">Grooming</a></li>
+              <li><a class="dropdown-item" href="{% url 'pet_training:index' %}">Training</a></li>
+              <li><a class="dropdown-item" href="{% url 'daycare:index' %}">Daycare</a></li>
               <li><hr class="dropdown-divider"></li>
-              {% if request.user.is_superuser %}
-                <li><a class="dropdown-item" href="{% url 'admin:index' %}">Admin Dashboard</a></li>
-                <li><hr class="dropdown-divider"></li>
-              {% endif %}
-              <li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
-            {% else %}
-              <li><a class="dropdown-item" href="{% url 'account_login' %}">Log In</a></li>
-              <li><a class="dropdown-item" href="{% url 'account_signup' %}">Sign Up</a></li>
+              <li><a class="dropdown-item" href="{% url 'emergency_support:index' %}">Emergency Support</a></li>
+            </ul>
+          </li>
+          
+          <!-- Community -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="communityDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Community
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="communityDropdown">
+              <li><a class="dropdown-item" href="{% url 'pet_social:index' %}">Pet Social</a></li>
+              <li><a class="dropdown-item" href="{% url 'forums:index' %}">Forums</a></li>
+              <li><a class="dropdown-item" href="{% url 'events:index' %}">Events</a></li>
+              <li><a class="dropdown-item" href="{% url 'find_my_pet:index' %}">Lost & Found</a></li>
+              <li><a class="dropdown-item" href="{% url 'volunteer:index' %}">Volunteer</a></li>
+              <li><a class="dropdown-item" href="{% url 'memorials:index' %}">Memorials</a></li>
+            </ul>
+          </li>
+          
+          <!-- Adoption -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="adoptionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Adoption
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="adoptionDropdown">
+              <li><a class="dropdown-item" href="{% url 'adoption:index' %}">Find a Pet</a></li>
+              <li><a class="dropdown-item" href="{% url 'adoption:index' %}">List for Adoption</a></li>
+              <li><a class="dropdown-item" href="{% url 'compatibility_finder:index' %}">Compatibility Finder</a></li>
+              <li><a class="dropdown-item" href="{% url 'success_stories:index' %}">Success Stories</a></li>
+            </ul>
+          </li>
+          
+          <!-- Marketplace -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="marketplaceDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Marketplace
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="marketplaceDropdown">
+              <li><a class="dropdown-item" href="{% url 'shop:index' %}">Pet Shop</a></li>
+              <li><a class="dropdown-item" href="{% url 'pet_exchange:index' %}">Pet Exchange</a></li>
+              <li><a class="dropdown-item" href="{% url 'subscription_box:index' %}">Subscription Box</a></li>
+              <li><a class="dropdown-item" href="{% url 'accessories_design:index' %}">Custom Accessories</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{% url 'donations:index' %}">Donations</a></li>
+            </ul>
+          </li>
+          
+          <!-- Resources -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Resources
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
+              <li><a class="dropdown-item" href="{% url 'pet_care_guides:index' %}">Pet Care Guides</a></li>
+              <li><a class="dropdown-item" href="{% url 'recipe_sharing:index' %}">Recipe Sharing</a></li>
+              <li><a class="dropdown-item" href="{% url 'training_tips:index' %}">Training Tips</a></li>
+              <li><a class="dropdown-item" href="{% url 'travel_resources:index' %}">Travel Resources</a></li>
+              <li><a class="dropdown-item" href="{% url 'faq:index' %}">FAQ</a></li>
+            </ul>
+          </li>
+          
+          <!-- Messages/Inbox -->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'messaging:index' %}">
+              Messages
+              <span class="badge bg-danger rounded-pill">2</span>
+            </a>
+          </li>
+        </ul>
+        
+        <!-- Search form - visible in offcanvas on mobile -->
+        <form class="d-flex d-lg-none my-3" method="GET" action="">
+          <input class="form-control me-2" type="search" name="q" placeholder="Search pets, services, products..." aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        
+        <!-- User account options for mobile -->
+        <div class="d-lg-none mt-3">
+          {% if request.user.is_authenticated %}
+            <a href="{% url 'profiles:index' %}" class="btn btn-outline-secondary w-100 mb-2">My Profile</a>
+            <a href="{% url 'pet_profiles:index' %}" class="btn btn-outline-secondary w-100 mb-2">My Pets</a>
+            {% if request.user.is_superuser %}
+              <a href="{% url 'admin:index' %}" class="btn btn-outline-dark w-100 mb-2">Admin</a>
             {% endif %}
-          </ul>
+            <a href="{% url 'account_logout' %}" class="btn btn-outline-primary w-100">Log Out</a>
+          {% else %}
+            <a href="{% url 'account_login' %}" class="btn btn-outline-primary w-100 mb-2">Log In</a>
+            <a href="{% url 'account_signup' %}" class="btn btn-primary w-100">Sign Up</a>
+          {% endif %}
         </div>
       </div>
     </div>
-  </nav>
+    
+    <!-- Desktop-only search form -->
+    <form class="d-none d-lg-flex ms-auto me-2" method="GET" action="">
+      <input class="form-control me-2" type="search" name="q" placeholder="Search..." aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    
+    <!-- Desktop-only user dropdown -->
+    <div class="d-none d-lg-block">
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-user"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+          {% if request.user.is_authenticated %}
+            <li><a class="dropdown-item" href="{% url 'profiles:index' %}">My Profile</a></li>
+            <li><a class="dropdown-item" href="{% url 'pet_profiles:index' %}">My Pets</a></li>
+            <li><a class="dropdown-item" href="{% url 'messaging:index' %}">My Messages</a></li>
+            <li><a class="dropdown-item" href="#">My Appointments</a></li>
+            <li><hr class="dropdown-divider"></li>
+            {% if request.user.is_superuser %}
+              <li><a class="dropdown-item" href="{% url 'admin:index' %}">Admin Dashboard</a></li>
+              <li><hr class="dropdown-divider"></li>
+            {% endif %}
+            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
+          {% else %}
+            <li><a class="dropdown-item" href="{% url 'account_login' %}">Log In</a></li>
+            <li><a class="dropdown-item" href="{% url 'account_signup' %}">Sign Up</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

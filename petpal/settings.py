@@ -39,12 +39,64 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'home',
+    
+    # Third party
     'rest_framework',
     'crispy_forms',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    
+    # Custom apps
+    'home',
+    
+    # Pet Management
+    'pet_profiles',
+    'pet_health',
+    'pet_activity',
+    'pet_personality',
+    'pet_milestones',
+    'pet_insurance',
+    
+    # Services
+    'sitters',
+    'veterinarian',
+    'grooming',
+    'pet_training',
+    'daycare',
+    'emergency_support',
+    
+    # Community
+    'pet_social',
+    'forums',
+    'events',
+    'find_my_pet',
+    'volunteer',
+    'memorials',
+    
+    # Adoption
+    'adoption',
+    'compatibility_finder',
+    'success_stories',
+    'shelter_management',
+    
+    # Marketplace
+    'shop',
+    'donations',
+    'subscription_box',
+    'accessories_design',
+    'pet_exchange',
+    
+    # Resources
+    'pet_care_guides',
+    'recipe_sharing',
+    'training_tips',
+    'travel_resources',
+    'faq',
+    
+    # Other Core Apps
+    'messaging',
+    'profiles',
 ]
 
 # Add after INSTALLED_APPS
