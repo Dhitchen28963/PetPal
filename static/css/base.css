@@ -1,0 +1,116 @@
+/* Base styles for PetPal site */
+
+/* General styling */
+html {
+    height: 100%;
+}
+
+body {
+    height: calc(100vh - 164px);
+    font-family: 'Roboto', sans-serif;
+    padding-top: 72px; /* Adjust based on your navbar height */
+    background-color: #f8f9fa;
+}
+
+/* Navigation */
+.navbar-brand {
+    font-weight: 700;
+}
+
+.nav-link {
+    font-weight: 500;
+}
+
+/* Offcanvas */
+.offcanvas-body .nav-link {
+    padding: 0.5rem 0;
+}
+
+/* Toast messages */
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999;
+}
+
+.toast {
+    overflow: visible;
+}
+
+/* Form elements */
+.form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+/* Hero section styling */
+.hero-section {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+/* Call to action button */
+.cta-button {
+    background-color: #28a745;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #218838;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.1);
+}
+
+/* Headline animation */
+.fade-in-up {
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Home page background */
+.home-bg {
+    background: url('/static/images/hero-bg.jpg') no-repeat center center;
+    background-size: cover;
+    height: calc(100vh - 72px);
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .navbar .navbar-brand {
+        font-size: 1.25rem;
+    }
+    
+    .hero-section {
+        margin-top: 1rem;
+        padding: 1.5rem;
+    }
+}

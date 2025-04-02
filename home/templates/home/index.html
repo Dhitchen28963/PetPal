@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}Home{% endblock %}
+
+{% block content %}
+<div class="container-fluid p-0">
+    <div class="home-bg">
+        <div class="overlay"></div>
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-12 col-md-6 my-auto">
+                    <div class="hero-section">
+                        <h1 class="display-4 text-success fade-in-up">Welcome to PetPal</h1>
+                        <h4 class="mt-4 fade-in-up">Find your perfect pet companion</h4>
+                        <p class="lead mt-3 fade-in-up">Connect with other pet lovers, find trusted pet services, and discover your new furry friend.</p>
+                        <div class="my-5 fade-in-up">
+                            <a href="#" class="cta-button btn btn-lg">Browse Pets</a>
+                            <a href="#" class="btn btn-lg btn-outline-secondary ms-3">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
